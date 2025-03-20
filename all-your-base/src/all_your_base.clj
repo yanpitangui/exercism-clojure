@@ -17,12 +17,11 @@
         ]
    
    (cond invalid nil
-         (empty? input_digits) () 
+         (empty? input_digits) ()
          (every? zero? input_digits) (seq [0])
          :else (loop [n (to_base_10 input_base input_digits)
                       res []]  ;; Start with an empty list
                  (if (zero? n)
                    (reverse res)
-                   (recur (quot n output-base) (conj res (mod n output-base)))))
-         ))
+                   (recur (quot n output-base) (conj res (mod n output-base)))))))
 )
